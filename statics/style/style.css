@@ -1,0 +1,32 @@
+table, th, td {
+    border: 1px solid white;
+}
+
+tr, th, td {
+    text-align: center;
+}
+
+table {
+    vertical-align: top;
+    display: inline-block;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+caption {
+    font-size: 18px;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.button:hover {
+    cursor: pointer;
+}

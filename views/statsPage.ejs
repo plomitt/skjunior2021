@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <title>Stats</title>
+</head>
+<body>
+    <h1>Here are the results</h1>
+    <div>
+        <% if (Object.keys(keyboardKeys).length !== 0) { %>
+            <table id="keyboardKeys">
+                <caption>Keyboard</caption>
+                <tbody>
+                    <tr>
+                        <th>Key</th>
+                        <th>Amount of times this key has been pressed</th>
+                    </tr>
+                    <% for (i = 0; i < Object.keys(keyboardKeys).length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= Object.keys(keyboardKeys)[i] %>
+                            </td>
+                            <td>
+                                <%= keyboardKeys[Object.keys(keyboardKeys)[i]] %>
+                            </td>
+                        </tr>
+                    <% }; %>
+                </tbody>
+            </table>
+        <% }; %>
+        <% if (Object.keys(mouseKeys).length !== 0) { %>
+            <table id="mouseKeys">
+                <caption>Mouse</caption>
+                <tbody>
+                    <tr>
+                        <th>Key</th>
+                        <th>Amount of times this key has been pressed</th>
+                    </tr>
+                    <% for (i = 0; i < Object.keys(mouseKeys).length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= Object.keys(mouseKeys)[i] %>
+                            </td>
+                            <td>
+                                <%= mouseKeys[Object.keys(mouseKeys)[i]] %>
+                            </td>
+                        </tr>
+                    <% }; %>
+                </tbody>
+            </table>
+        <% }; %>
+    </div>
+    <% if ((Object.keys(mouseKeys).length === 0) && (Object.keys(mouseKeys).length === 0)) { %>
+        <p>No results avaliable</p>
+    <% }; %>
+    <p><input type="button" value="Back" onclick="window.location.href = '/'" class="button"></p>
+</body>
+</html>

@@ -173,14 +173,13 @@ app.get('/', function(req, res) {
 
 app.post('/upload_files', urlencodedParser, function(req, res) {
     parseIncomingFiles(req)
-    //.then(files => relocateFiles(files))
     .then(relocatedFilesPaths => parseCsvToJsonMultipleFiles(relocatedFilesPaths))
     .then(parsedFiles => countPressedKeysFiles(parsedFiles))
     .then(countedKeys => res.render('statsPage.ejs', {
         keyboardKeys: countedKeys['keyboardKeys'],
         mouseKeys: countedKeys['mouseKeys']
-    }));
-    //.catch(error => renderErrorPage(res, error))
+    }))
+    .catch(error => renderErrorPage(res, error));
 });
 
 app.use(function(req, res, next) {
@@ -193,7 +192,7 @@ app.use(function(req, res, next) {
     renderErrorPage(res, '500 Internal server error');
 });
 
-const server = app.listen(8888, function() {
+const server = app.listen(process.env.PORT, function() {
     const host = server.address().address;
     const port = server.address().port;
     console.log('Example app listening at localhost%s%s', host, port);

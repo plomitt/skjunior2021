@@ -8,15 +8,15 @@
     <title>Stats</title>
 </head>
 <body>
-    <h1>Here are the results</h1>
+    <h1>Результаты</h1>
     <div>
         <% if (Object.keys(keyboardKeys).length !== 0) { %>
             <table id="keyboardKeys">
-                <caption>Keyboard</caption>
+                <caption>Клавиатура</caption>
                 <tbody>
                     <tr>
-                        <th>Key</th>
-                        <th>Amount of times this key has been pressed</th>
+                        <th>Клавиша</th>
+                        <th>Количество нажатий клавиши</th>
                     </tr>
                     <% for (i = 0; i < Object.keys(keyboardKeys).length; i++) { %>
                         <tr>
@@ -33,11 +33,11 @@
         <% }; %>
         <% if (Object.keys(mouseKeys).length !== 0) { %>
             <table id="mouseKeys">
-                <caption>Mouse</caption>
+                <caption>Мышь</caption>
                 <tbody>
                     <tr>
-                        <th>Key</th>
-                        <th>Amount of times this key has been pressed</th>
+                        <th>Клавиша</th>
+                        <th>Количество нажатий клавиши</th>
                     </tr>
                     <% for (i = 0; i < Object.keys(mouseKeys).length; i++) { %>
                         <tr>
@@ -54,8 +54,8 @@
         <% }; %>
     </div>
     <% if ((Object.keys(mouseKeys).length === 0) && (Object.keys(mouseKeys).length === 0)) { %>
-        <p>No results avaliable</p>
+        <p>Результаты недоступны</p>
     <% }; %>
-    <p><input type="button" value="Back" onclick="window.location.href = '/'" class="button"></p>
+    <p><input type="button" value="Back" onclick="window.history.back()" class="button"></p>
 </body>
 </html>

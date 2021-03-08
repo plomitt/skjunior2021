@@ -14,7 +14,7 @@ function parseIncomingFiles(req) {
 
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);
-            let filesPaths = renameFiles(files);
+            const filesPaths = renameFiles(files);
             resolve(filesPaths);
         });
     });
@@ -24,18 +24,20 @@ function renameFiles(files) {
     const amonutOfFiles = files.uploadedFiles.length;
     if (amonutOfFiles === undefined) {
         let paths = [];
-        paths.push(getSinglePath(files.uploadedFiles));
+        const path = getPath(files.uploadedFiles);
+        paths.push(path);
         return paths;
     } else {
         let paths = [];
         for (let i = 0; i < amonutOfFiles; i++) {
-            paths.push(getSinglePath(files.uploadedFiles[i]));
+            const path = getPath(files.uploadedFiles[i]);
+            paths.push(path);
         }
         return paths;
     }
 }
 
-function getSinglePath(file) {
+function getPath(file) {
     const fileName = file.name;
     const oldPath = file.path;
 
